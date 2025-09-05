@@ -10,6 +10,22 @@
             "name": "default",
             "displayName": "Default Configure",
             "binaryDir": "${sourceDir}/Build"
+        },
+        {
+            "name": "debug",
+            "displayName": "Debug Configure",
+            "binaryDir": "${sourceDir}/Build/Debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "release",
+            "displayName": "Release Configure",
+            "binaryDir": "${sourceDir}/Build/Release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         }
     ],
     "buildPresets": [
@@ -17,6 +33,26 @@
             "name": "default",
             "displayName": "Default Build",
             "configurePreset": "default"
+        },
+        {
+            "name": "debug",
+            "displayName": "Debug Build",
+            "configurePreset": "debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "release",
+            "displayName": "Release Build",
+            "configurePreset": "release",
+            "configuration": "Release"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "default",
+            "displayName": "Default Test",
+            "configurePreset": "default",
+            "configuration": "Debug"
         }
     ],
     "workflowPresets": [
@@ -30,6 +66,24 @@
                 },
                 {
                     "type": "build",
+                    "name": "default"
+                }
+            ]
+        },
+        {
+            "name": "configure-build-test",
+            "displayName": "Configure, Build, and Test",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "debug"
+                },
+                {
+                    "type": "build",
+                    "name": "debug"
+                },
+                {
+                    "type": "test",
                     "name": "default"
                 }
             ]
