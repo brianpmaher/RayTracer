@@ -4,37 +4,21 @@ project(RayTracer LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
 include(FetchContent)
 
-function(add_dependency name repository tag)
-    FetchContent_Declare(
-        ${name}
-        GIT_REPOSITORY ${repository}
-        GIT_TAG ${tag}
-    )
-    FetchContent_MakeAvailable(${name})
-endfunction()
-
-add_executable(${PROJECT_NAME}
-    Source/Main.cpp
+FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG v3.10.0
 )
+FetchContent_MakeAvailable(Catch2)
 
-target_include_directories(${PROJECT_NAME}
-    PUBLIC
-        Include
-)
+enable_testing()
 
-add_dependency(Catch2 https://github.com/catchorg/Catch2.git v3.10.0)
-
-set(TEST_PROJECT ${PROJECT_NAME}_Tests)
-
-add_executable(${TEST_PROJECT}
-    Tests/Math/Vector3.cpp
-)
-
-target_include_directories(${TEST_PROJECT}
-    PUBLIC
-        Include
-)
-
-target_link_libraries(${TEST_PROJECT} PRIVATE Catch2::Catch2WithMain)
+add_subdirectory(Include)
+add_subdirectory(Source)
+add_subdirectory(Tests)
