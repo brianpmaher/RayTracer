@@ -10,18 +10,14 @@ namespace RayTracer::Tests
     {
         Color color;
 
-        REQUIRE(color.r == 0.0f);
-        REQUIRE(color.g == 0.0f);
-        REQUIRE(color.b == 0.0f);
+        REQUIRE(color == Color{0.0f, 0.0f, 0.0f});
     }
 
     TEST_CASE("Color can be created with parameterized constructor", Tags)
     {
         Color color{1.0f, 0.5f, 0.2f};
 
-        REQUIRE(color.r == 1.0f);
-        REQUIRE(color.g == 0.5f);
-        REQUIRE(color.b == 0.2f);
+        REQUIRE(color == Color{1.0f, 0.5f, 0.2f});
     }
 
     TEST_CASE("Color equality operator", Tags)
@@ -50,9 +46,7 @@ namespace RayTracer::Tests
         Color b{0.4f, 0.5f, 0.6f};
         Color result = a + b;
 
-        REQUIRE(result.r == 0.5f);
-        REQUIRE(result.g == 0.7f);
-        REQUIRE(result.b == 0.9f);
+        REQUIRE(result == Color{0.5f, 0.7f, 0.9f});
     }
 
     TEST_CASE("Color subtraction operator", Tags)
@@ -61,9 +55,7 @@ namespace RayTracer::Tests
         Color b{0.4f, 0.5f, 0.6f};
         Color result = a - b;
 
-        REQUIRE(result.r == 0.1f);
-        REQUIRE(result.g == 0.2f);
-        REQUIRE(result.b == 0.3f);
+        REQUIRE(result == Color{0.1f, 0.2f, 0.3f});
     }
 
     TEST_CASE("Color negation operator", Tags)
@@ -71,9 +63,7 @@ namespace RayTracer::Tests
         Color a{0.1f, -0.2f, 0.3f};
         Color result = -a;
 
-        REQUIRE(result.r == -0.1f);
-        REQUIRE(result.g == 0.2f);
-        REQUIRE(result.b == -0.3f);
+        REQUIRE(result == Color{-0.1f, 0.2f, -0.3f});
     }
 
     TEST_CASE("Color scalar multiplication", Tags)
@@ -81,9 +71,7 @@ namespace RayTracer::Tests
         Color a{0.1f, 0.2f, 0.3f};
         Color result = a * 2.0f;
 
-        REQUIRE(result.r == 0.2f);
-        REQUIRE(result.g == 0.4f);
-        REQUIRE(result.b == 0.6f);
+        REQUIRE(result == Color{0.2f, 0.4f, 0.6f});
 
         Color result2 = 2.0f * a;
         REQUIRE(result2 == result);
@@ -94,9 +82,7 @@ namespace RayTracer::Tests
         Color a{0.2f, 0.4f, 0.6f};
         Color result = a / 2.0f;
 
-        REQUIRE(result.r == 0.1f);
-        REQUIRE(result.g == 0.2f);
-        REQUIRE(result.b == 0.3f);
+        REQUIRE(result == Color{0.1f, 0.2f, 0.3f});
     }
 
     TEST_CASE("Color Hadamard product", Tags)
@@ -105,8 +91,6 @@ namespace RayTracer::Tests
         Color b{2.0f, 3.0f, 4.0f};
         Color result = a * b;
 
-        REQUIRE(result.r == 0.2f);
-        REQUIRE(result.g == 0.6f);
-        REQUIRE(result.b == 1.2f);
+        REQUIRE(result == Color{0.2f, 0.6f, 1.2f});
     }
 }
