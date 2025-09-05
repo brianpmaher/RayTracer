@@ -1,10 +1,10 @@
-#include "RayTracer/Math/Vector4.hpp"
+#include "RayTracer/Vector4.hpp"
 
 #include <catch2/catch_test_macros.hpp>
 
-namespace RayTracer::Math::Tests
+namespace RayTracer::Tests
 {
-    constexpr const char* Tags = "[Math][Vector4]";
+    constexpr const char* Tags = "[Vector4]";
 
     TEST_CASE("Vector4 can be created with default constructor", Tags)
     {

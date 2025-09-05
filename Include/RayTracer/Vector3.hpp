@@ -3,7 +3,7 @@
 #include <cmath>
 #include <limits>
 
-namespace RayTracer::Math
+namespace RayTracer
 {
     struct Vector3
     {
