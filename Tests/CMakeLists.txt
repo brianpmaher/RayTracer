@@ -5,14 +5,13 @@ add_executable(RayTracer_Tests
     Matrix.cpp
     Ray.cpp
     Sphere.cpp
-    ../Source/Matrix.cpp
-    ../Source/Sphere.cpp
 )
 
 target_link_libraries(RayTracer_Tests
     PRIVATE
         Catch2::Catch2WithMain
         RayTracer_Headers
+        RayTracer_Lib
 )
 
 add_test(NAME RayTracer_Tests COMMAND RayTracer_Tests)
