@@ -2,4 +2,5 @@
 
 cd %~dp0
 
-cmake --workflow configure-and-build
+cmake -S . -B Build
+cmake --build Build
