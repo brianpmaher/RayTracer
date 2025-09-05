@@ -4,6 +4,12 @@ project(RayTracer LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 
+if(MSVC)
+    add_compile_options(/W4 /WX)
+else()
+    add_compile_options(-Wall -Wextra -Werror)
+endif()
+
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
