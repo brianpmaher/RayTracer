@@ -2,6 +2,7 @@ add_executable(RayTracer_Tests
     Vector3.cpp
     Vector4.cpp
     Color.cpp
+    Matrix.cpp
 )
 
 target_link_libraries(RayTracer_Tests
