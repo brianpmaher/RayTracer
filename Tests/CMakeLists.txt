@@ -1,4 +1,4 @@
-add_executable(RayTracer_Tests Math/Vector3.cpp)
+add_executable(RayTracer_Tests Math/Vector3.cpp Math/Vector4.cpp)
 
 target_link_libraries(RayTracer_Tests PRIVATE Catch2::Catch2WithMain RayTracer_Headers)
 
