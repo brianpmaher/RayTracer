@@ -4,6 +4,9 @@ add_executable(RayTracer_Tests
     Color.cpp
     Matrix.cpp
     Ray.cpp
+    Sphere.cpp
+    ../Source/Matrix.cpp
+    ../Source/Sphere.cpp
 )
 
 target_link_libraries(RayTracer_Tests
